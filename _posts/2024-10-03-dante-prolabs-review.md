@@ -4,7 +4,7 @@ categories:
 image:
   path: dantepng.png
 layout: post
-media_subpath: /assets/posts/2024-10-03-dante-pro-labs/dantepng.png
+media_subpath: /assets/posts/2024-10-03-dante-pro-labs
 tags:
 - Prolabs
 - Review
