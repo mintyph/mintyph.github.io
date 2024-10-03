@@ -6,11 +6,11 @@ order: 4
 
 ### Whoami
 
-**G’day and welcome to my personal blog! Here you can expect to find content about various topics of hacking/red teaming in general, such as CTF machines writeups, HTB ProLabs Reviews, study/preparation tips and many more.  
+**G’day and welcome to my personal blog! Here you can expect to find content about various topics of hacking/red teaming in general, such as CTF machines writeups, HTB ProLabs Reviews, study/preparation tips and many more.**  
 
 
 ### Career and experience.
-- **I have 5 years of experience in the field of cybersecurity, specifically in conducting penetration testing on web apps and infrastructure, OSINT, cracking, and programming. I have also helped mitigate multiple web vulnerabilities for various companies through bug bounty programs, including notable ones like Rockstar Games, Motorola, PayPal, and Wise.****
+- **I have 5 years of experience in the field of cybersecurity, specifically in conducting penetration testing on web apps and infrastructure, OSINT, cracking, and programming. I have also helped mitigate multiple web vulnerabilities for various companies through bug bounty programs, including notable ones like Rockstar Games, Motorola, PayPal, and Wise.**
  
 ### Socials
 **You can check me out on**
