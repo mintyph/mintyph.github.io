@@ -6,7 +6,7 @@ order: 4
 
 ### Whoami
 
-**G’day and welcome to my personal blog! Here you can expect to find content about various topics of hacking/red teaming in general, such as CTF machines writeups, HTB ProLabs Reviews, study/preparation tips and many more.**  
+- **G’day and welcome to my personal blog! Here you can expect to find content about various topics of hacking/red teaming in general, such as CTF machines writeups, HTB ProLabs Reviews, study/preparation tips and many more.**  
 
 
 ### Career and experience.
