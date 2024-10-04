@@ -16,7 +16,7 @@ Before taking the HTB CPTS exam, I decided to challenge myself in the amazing wo
 
 The cost for accessing Hack the Box ProLabs is based on a monthly subscription, currently priced at USD 49. The total amount you'll spend depends on how long it takes you to complete the labs. I personally took 5 days, dedicating around 6 to 7 hours each day. Dante is definitely the easiest of all the ProLabs, so it’s more than possible to finish it in less than a month, even if you don't have extensive experience with CTFs. During your subscription period, you can try as many ProLabs as you want, allowing you to explore and learn at your own pace.
 
-## Dificulty and areas covered.  
+## Difficulty and areas covered.  
 
 ![dante-status](dante-status.png)
 
