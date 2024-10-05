@@ -36,7 +36,7 @@ As I mentioned at the beginning of the review, ProLabs are an excellent place to
 ![dantecert](dantecert.png)
 
 ## Extra Tip: Note taking.
-- One crucial concept that applies not just for Dante is effective note-taking. Consider organizing your notes by topics, such as scan results, vulnerabilities found and every relevant information you may find.. This way, you’ll have a personalized study guide to refer back to when needed.
+- One crucial concept that applies not just for Dante is effective note-taking. Consider organizing your notes by topics, such as scan results, vulnerabilities found and every relevant information you may find.. This way, you’ll have a personalized guide to refer back to when needed.
 
 Thank you so much for reading, and good luck!
 
