@@ -23,8 +23,8 @@ Embora este laboratório seja classificado como nível 'Iniciante', não se deix
 
 ### Esses são:
 1. Enumeração.
-2. Desenvolvimento exploit (não espere copiar e colar exploits passo a passo da internet).
-3. Detectar e explorar vulnerabiliades web.
+2. Desenvolvimento de exploits (não espere copiar e colar exploits passo a passo da internet).
+3. Detectar e explorar vulnerabilidades web.
 4. Pivoting e Portforwading (o que definitivamente não é algo que muitos iniciantes sabem).
 5. Privillege escalation em ambos ambientes Linux e Windows.
 
