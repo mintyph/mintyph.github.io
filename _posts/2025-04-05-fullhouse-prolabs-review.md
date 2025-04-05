@@ -2,7 +2,7 @@
 categories:
 - ProLabs
 image:
-  path: fullhousepng.png
+  path: fullhousepng.jpg
 layout: post
 media_subpath: /assets/posts/2025-04-05-fullhouse-prolabs
 tags:
