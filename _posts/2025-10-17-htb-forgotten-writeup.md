@@ -81,9 +81,17 @@ Once the LimeSurvey installation is finished, we can access the admin interface 
 ![Admin](admin.png)
 
 Upon logging in, the admin interface indicates LimeSurvey **6.3.7+231127** is running. Public advisories report that this version is susceptible to an **authenticated remote code execution (RCE)** vulnerability.
-
-
-
+The steps are quite simple:
+  Create archive with these files
+  Login with credentials
+  Go Configuration -> Plugins -> Upload & Install
+  Choose your zipped file
+  Upload
+  Install
+  Activate plugin
+  Start your listener
+  Go url+{upload/plugins/#Name/#Shell_file_name}
+  Get reverse shell.
 
 
 
