@@ -2,7 +2,7 @@
 categories:
 - Writeups
 image:
-  path: forgotten
+  path: forgotten.png
   media_subpath: assets/posts/2025-10-17-htb-forgtten-writeup
 layout: post
 media_subpath: assets/posts/2025-10-17-htb-forgtten-writeup
@@ -11,7 +11,7 @@ tags:
 - Writeup
 title: HTB - Forgotten writeup.
 ---
-Hello and welcome to my review of the FullHouse ProLab from Hack The Box! This one was quite a challenge, so I'm really excited to share my experience and what I learned along the way in this review. :)
+Forgotten is a Easy difficulty Linux machine from VulnLab that showcases several real-world techniques. It involves exploring a non finished LimeSurvey instalation and getting access to the admin panel, which is vulnerable to remote code execution. In order to escalate privileges, we must use a common folder between the container and the host user to transfer the bash file and become root.
 
 ## What is "FullHouse" about?
 FullHouse is a simulated environment of an online casino. Our initial step is to perform a penetration test on its main website and identify multiple vulnerabilities. It consists of 7 different flags spread across 4 different machines that we need to hack into using various techniques. It personally took me much longer than anything else I’ve tried, mainly because it involved areas I wasn’t very familiar with yet — specifically, pentesting blockchain and AI bypass techniques.
