@@ -76,7 +76,11 @@ sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d my
 
 ![Installed](installed.png)
 
+Once the LimeSurvey installation is finished, we can access the admin interface by authenticating with the credentials defined during the setup process.
 
+![Admin](admin.png)
+
+Upon logging in, the admin interface indicates LimeSurvey **6.3.7+231127** is running. Public advisories report that this version is susceptible to an **authenticated remote code execution (RCE)** vulnerability.
 
 
 
