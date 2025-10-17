@@ -32,3 +32,53 @@ PORT   STATE SERVICE VERSION
 An initial HTTP request to the webserver returned a 403 Forbidden response (HTTP/1.1 403), indicating access to the requested resource is denied.
 
 ![Forbidden](forbidden.png)
+
+Time to keep enumerating, now fuzzing for subdirectories:
+
+```
+➜  Forgotten ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.129.234.81/FUZZ -fs 278
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.129.234.81/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+ :: Filter           : Response size: 278
+________________________________________________
+
+survey                  [Status: 301, Size: 315, Words: 20, Lines: 10, Duration: 265ms]
+```
+
+Accessing the /survey directory exposed a partially completed LimeSurvey installation, indicating setup steps were incomplete and left the instance in a misconfigured state.
+
+![LimeSurvey](limesurvey.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
