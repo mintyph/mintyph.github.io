@@ -66,13 +66,15 @@ Accessing the /survey directory exposed a partially completed LimeSurvey install
 
 ![LimeSurvey](limesurvey.png)
 
+### Exploitation
 
+The LimeSurvey installer requires a MySQL database, so we must run a local MySQL service before proceeding with the installation.
 
+```
+sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest
+```
 
-
-
-
-
+![Installed](installed.png)
 
 
 
