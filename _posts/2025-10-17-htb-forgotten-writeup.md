@@ -3,9 +3,9 @@ categories:
 - Writeup
 image:
   path: forgotten.png
-  media_subpath: /assets/posts/2025-04-05-htb-forgotten-writeup
+  media_subpath: /assets/posts/2025-10-17-htb-forgotten-writeup
 layout: post
-media_subpath: /assets/posts/2025-04-05-htb-forgotten-writeup
+media_subpath: /assets/posts/2025-10-17-htb-forgotten-writeup
 tags:
 - Writeup
 - CTF
