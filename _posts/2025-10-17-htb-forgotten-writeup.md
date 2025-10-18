@@ -112,7 +112,7 @@ USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 uid=2000(limesvc) gid=2000(limesvc) groups=2000(limesvc),27(sudo)                           
 /bin/sh: 0: can't access tty; job control turned off 
 ```
-### Post Access Enumeration / User Flag.
+### Post Access Enumeration and user flag.
 
 Python was unavailable on the target, so we used an alternative command to upgrade the shell.
 
