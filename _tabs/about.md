@@ -10,7 +10,7 @@ order: 4
 
 
 ### Career and experience.
-- **I have 5 years of dedication in the field of cybersecurity, specifically in conducting penetration testing on web apps and infrastructure, OSINT, cracking, and programming. I have also helped mitigate multiple web vulnerabilities for various companies through bug bounty programs, including notable ones like Rockstar Games, Motorola, PayPal, and Wise.**
+- **I have 5 years of dedication in the field of cybersecurity, specifically in conducting penetration testing on web apps and infrastructure, OSINT, and programming. On top of that, I actively take part in HackTheBox CTFs and continuously develop my skills in web application security through PortSwigger Academy and Bug Bounty programs.**
  
 ### Socials
 **You can check me out on**
